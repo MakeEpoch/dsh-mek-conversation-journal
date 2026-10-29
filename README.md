@@ -25,7 +25,7 @@ node scripts/install-web.mjs --dry-run
 npm run install:dsh:web
 ```
 
-安装器仅支持现有 Web profile，备份配置后使用 DSH 官方插件管理器安装，不自动重启服务。安装后重启对应的 DSH Web 进程并刷新浏览器。在 Desktop 使用时通过它自己的插件管理器安装，不能把 Web 安装回执当成 Desktop 激活证据。
+安装器仅支持现有 Web profile，备份配置后将独立安装包缓存到 profile，并使用 DSH 官方插件管理器安装；不直连源码，不自动重启服务。安装后重启对应的 DSH Web 进程并刷新浏览器。在 Desktop 使用时通过它自己的插件管理器安装，不能把 Web 安装回执当成 Desktop 激活证据。
 
 首次使用：
 
@@ -82,7 +82,7 @@ DSH_PLAYWRIGHT_MODULE=/path/to/playwright npm run test:browser
 npm run pack:check
 ```
 
-测试使用隔离数据与模拟 Notion API，不代表真实账户写入或真实 DSH 页面已验收。本次重构已在现有源码链接的 DSH Web 重启后完成真实页面只读核对；保存、生成和 Notion 写入流程由隔离测试验证，具体范围记录在 [本次评审](docs/PRODUCT_REVIEW.md)。浏览器截图位于 `artifacts`，不进入安装包。
+测试使用隔离数据与模拟 Notion API，不代表真实账户写入或真实 DSH 页面已验收。历史版本曾在 DSH Web 完成真实页面只读核对；保存、生成和 Notion 写入流程由隔离测试验证，具体范围记录在 [本次评审](docs/PRODUCT_REVIEW.md)。浏览器截图位于 `artifacts`，不进入安装包。
 
 来源扩展接口、存储格式和验证范围见 [架构说明](docs/ARCHITECTURE.md)。
 
