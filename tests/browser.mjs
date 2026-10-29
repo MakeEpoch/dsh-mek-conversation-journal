@@ -102,7 +102,7 @@ function setupFixture(React, createRoot) {
     register(options, Section) { demo.section = options; view = createRoot(document.getElementById('root')); view.render(React.createElement(Section)); return () => { demo.stops++; view.unmount(); }; },
   } };
   window.__ModuleLoader__ = { load({ id, factory }) {
-    if (id !== '@dsh/conversation-journal') throw new Error('Wrong module identity');
+    if (id !== 'dsh-mek-conversation-journal') throw new Error('Wrong module identity');
     plugin = factory((name) => { if (name === 'react') return React; throw new Error(`Unexpected module: ${name}`); });
     plugin.apply(ctx);
   } };

@@ -25,8 +25,8 @@ export class JournalService {
   config() { return readConfig(this.raw); }
   settingsEntry() {
     const editor = this.ctx.get?.('configEditor');
-    const entry = editor?.entries?.().find((e) => e.options?.name === '@dsh/conversation-journal' && (!this.ctx.fiber || e.fiber?.uid === this.ctx.fiber.uid))
-      ?? editor?.entries?.().find((e) => e.options?.name === '@dsh/conversation-journal');
+    const entry = editor?.entries?.().find((e) => e.options?.name === 'dsh-mek-conversation-journal' && (!this.ctx.fiber || e.fiber?.uid === this.ctx.fiber.uid))
+      ?? editor?.entries?.().find((e) => e.options?.name === 'dsh-mek-conversation-journal');
     return entry?.options?.id ?? 'conversation-journal';
   }
   settings() {

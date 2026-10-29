@@ -1,5 +1,5 @@
 {
-  "name": "@dsh/conversation-journal",
+  "name": "dsh-mek-conversation-journal",
   "version": "0.2.0",
   "description": "DSH 与 Codex 对话日报、知识库和 Notion 同步",
   "type": "module",

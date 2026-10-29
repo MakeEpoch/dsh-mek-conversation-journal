@@ -225,7 +225,7 @@ test('saving settings preserves blank secrets, checks revision and rejects inval
   const { store } = await fixture(t); const config = readConfig({ notionToken: 'test-preserved', provider: 'p', model: 'm' });
   const updates = [];
   const settings = { describe: () => [{ ns: 'custom-journal', revision: 8 }], update: async (ns, patch, revision) => { updates.push({ ns, patch, revision }); Object.assign(config, patch); } };
-  const service = new JournalService({ store, config, ctx: { get: (name) => name === 'settings' ? settings : name === 'configEditor' ? { entries: () => [{ options: { id: 'custom-journal', name: '@dsh/conversation-journal' } }] } : null } });
+  const service = new JournalService({ store, config, ctx: { get: (name) => name === 'settings' ? settings : name === 'configEditor' ? { entries: () => [{ options: { id: 'custom-journal', name: 'dsh-mek-conversation-journal' } }] } : null } });
   await service.save({ notionToken: '', timeZone: 'UTC' }, 8);
   assert.deepEqual(updates, [{ ns: 'custom-journal', patch: { timeZone: 'UTC' }, revision: 8 }]);
   assert.equal(config.notionToken, 'test-preserved'); assert.equal(service.settings().config.notionToken, undefined);

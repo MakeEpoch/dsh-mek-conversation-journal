@@ -11,7 +11,7 @@ DSH 插件：读取 Host 本机的 DSH 与 Codex 对话，整理成日报与知�
 从源码构建：
 
 ```sh
-cd dsh-plugin-conversation-journal
+cd dsh-mek-conversation-journal
 npm install
 npm run build
 npm test
@@ -93,7 +93,7 @@ npm run pack:check
 关闭「每天自动整理」可仅停用定时生成；关闭「启用对话整理」会停止后续手动与自动整理，但保留结果和 Notion 连接操作。已运行的任务使用启动时配置；需要中断时在「整理」中点击「停止任务」并确认。完全卸载请在 DSH 插件管理器移除本插件并重启对应宿主：
 
 ```sh
-dsh plugin --profile web remove @dsh/conversation-journal --ignore-scripts
+dsh plugin --profile web remove dsh-mek-conversation-journal --ignore-scripts
 ```
 
 移除不会删除 Notion 页面和本地缓存。需要清空本地数据时，先停用所有插件实例，再备份或移走 `$DSH_HOME/conversation-journal`。重建索引会重新分析并消耗模型用量；已有 Notion 自动区域若失去本地基线，会保守地停止覆盖。
