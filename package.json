@@ -1,0 +1,61 @@
+{
+  "name": "@dsh/conversation-journal",
+  "version": "0.2.0",
+  "description": "DSH 与 Codex 对话日报、知识库和 Notion 同步",
+  "type": "module",
+  "main": "./host/index.js",
+  "exports": {
+    ".": "./host/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "host",
+    "client",
+    "lib",
+    "docs",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22.16"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.1-rc.2 <0.3.0"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "install:dsh:web": "node scripts/install-web.mjs",
+    "test": "node tests/run.mjs",
+    "test:browser": "npm run build && node tests/browser.mjs",
+    "pack:check": "npm pack --dry-run"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": ">=3"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    }
+  },
+  "license": "MIT"
+}

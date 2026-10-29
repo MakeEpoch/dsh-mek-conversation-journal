@@ -1,0 +1,3 @@
+- insert:
+    - id: conversation-journal
+      name: '@dsh/conversation-journal'
