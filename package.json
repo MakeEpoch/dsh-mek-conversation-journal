@@ -45,6 +45,7 @@
     "pack:check": "npm pack --dry-run"
   },
   "devDependencies": {
+    "@deepseek-ai/schemastery": "3.18.6-alpha.1",
     "esbuild": "0.25.12",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
